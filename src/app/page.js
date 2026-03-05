@@ -29,7 +29,7 @@ export default function Home() {
         </p>
 
         <a
-          href="https://wa.me/919302824042"
+          href="https://wa.me/919302824042?text=Hello%20I%20want%20to%20order%20Kantiqa%20products"
           className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
         >
           Order on WhatsApp
