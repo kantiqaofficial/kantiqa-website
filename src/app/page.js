@@ -4,16 +4,30 @@ export default function Home() {
 
       {/* Navbar */}
 
-      <nav className="flex justify-between items-center p-6 bg-white shadow">
-        <h1 className="text-2xl font-bold text-green-700">Kantiqa 🌿</h1>
+<nav className="flex justify-between items-center p-6 bg-white shadow">
 
-        <div className="space-x-6">
-          <a className="hover:text-green-700" href="#">Home</a>
-          <a className="hover:text-green-700" href="#">Products</a>
-          <a className="hover:text-green-700" href="#">About</a>
-          <a className="hover:text-green-700" href="#">Contact</a>
-        </div>
-      </nav>
+<div className="flex items-center gap-3">
+
+<img
+src="/logo.png"
+alt="Kantiqa Logo"
+className="w-10 h-10"
+/>
+
+<h1 className="text-2xl font-bold text-green-700">
+Kantiqa
+</h1>
+
+</div>
+
+<div className="space-x-6">
+<a className="hover:text-green-700" href="#">Home</a>
+<a className="hover:text-green-700" href="#">Products</a>
+<a className="hover:text-green-700" href="#">About</a>
+<a className="hover:text-green-700" href="#">Contact</a>
+</div>
+
+</nav>
 
 
       {/* Hero Section */}
@@ -150,14 +164,16 @@ Follow Us on Instagram
 </h2>
 
 <p className="mb-6">
+See product updates and herbal beauty tips.
 See real product updates and customer results.
 </p>
 
 <a
-href="https://instagram.com"
+href="https://www.instagram.com/kantiqa.official"
+target="_blank"
 className="bg-green-700 text-white px-6 py-3 rounded-lg"
 >
-View Instagram
+@kantiqa.official
 </a>
 
 </section>
