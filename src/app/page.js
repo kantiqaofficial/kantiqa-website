@@ -6,12 +6,12 @@ export default function Home() {
 
 <nav className="flex justify-between items-center p-6 bg-white shadow">
 
-<div className="flex items-center gap-3">
+<div className="flex items-center gap-4">
 
 <img
 src="/logo.png"
 alt="Kantiqa Logo"
-className="w-10 h-10"
+className="w-16 h-16 object-contain"
 />
 
 <h1 className="text-2xl font-bold text-green-700">
