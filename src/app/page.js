@@ -25,7 +25,9 @@ Kantiqa
 <div className="flex items-center gap-6">
 
 <a className="text-gray-800 hover:text-green-700 font-medium" href="#">Home</a>
-<a className="text-gray-800 hover:text-green-700 font-medium" href="#">Products</a>
+<a className="text-gray-800 hover:text-green-700 font-medium" href="/products">
+Products
+</a>
 <a className="text-gray-800 hover:text-green-700 font-medium" href="#">About</a>
 <a className="text-gray-800 hover:text-green-700 font-medium" href="#">Contact</a>
 
@@ -58,6 +60,13 @@ Pure Herbal Beauty From Nature 🌿
 <p className="text-lg text-gray-200 mb-8">
 Traditional herbal powders crafted for healthy skin and hair.
 </p>
+
+<a
+href="/products"
+className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100"
+>
+View Products
+</a>
 
 <a
 href="https://wa.me/919302824042?text=Hello%20I%20want%20to%20order%20Kantiqa%20products"
@@ -215,6 +224,45 @@ apply on scalp and hair,
 leave for 30 minutes and rinse.
 </p>
 
+</div>
+
+</div>
+
+</section>
+
+<section className="bg-white py-24 text-center">
+
+<h2 className="text-3xl font-bold text-gray-900 mb-12">
+Natural Herbal Ingredients
+</h2>
+
+<div className="flex justify-center gap-10 flex-wrap max-w-5xl mx-auto">
+
+<div className="bg-green-50 p-6 rounded-xl w-60 shadow">
+<h3 className="text-xl font-semibold text-green-700 mb-2">
+Multani Mitti
+</h3>
+<p className="text-gray-700">
+Deep cleanses skin and removes excess oil.
+</p>
+</div>
+
+<div className="bg-green-50 p-6 rounded-xl w-60 shadow">
+<h3 className="text-xl font-semibold text-green-700 mb-2">
+Henna (Mehendi)
+</h3>
+<p className="text-gray-700">
+Strengthens hair and provides natural color.
+</p>
+</div>
+
+<div className="bg-green-50 p-6 rounded-xl w-60 shadow">
+<h3 className="text-xl font-semibold text-green-700 mb-2">
+Shikakai
+</h3>
+<p className="text-gray-700">
+Natural herbal cleanser that promotes healthy hair growth.
+</p>
 </div>
 
 </div>
