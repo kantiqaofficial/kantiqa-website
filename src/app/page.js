@@ -4,9 +4,10 @@ export default function Home() {
 
       {/* Navbar */}
 
-<nav className="flex justify-between items-center p-6 bg-white shadow">
+<nav className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
 
-<div className="flex items-center gap-4">
+{/* Logo Section */}
+<div className="flex items-center gap-3">
 
 <img
 src="/logo.png"
@@ -20,11 +21,33 @@ Kantiqa
 
 </div>
 
-<div className="space-x-6">
-<a className="hover:text-green-700" href="#">Home</a>
-<a className="hover:text-green-700" href="#">Products</a>
-<a className="hover:text-green-700" href="#">About</a>
-<a className="hover:text-green-700" href="#">Contact</a>
+{/* Navigation Links */}
+<div className="flex items-center gap-6">
+
+<a className="hover:text-green-700 font-medium" href="#">
+Home
+</a>
+
+<a className="hover:text-green-700 font-medium" href="#">
+Products
+</a>
+
+<a className="hover:text-green-700 font-medium" href="#">
+About
+</a>
+
+<a className="hover:text-green-700 font-medium" href="#">
+Contact
+</a>
+
+<a
+href="https://www.instagram.com/kantiqa.official"
+target="_blank"
+className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800"
+>
+Instagram
+</a>
+
 </div>
 
 </nav>
