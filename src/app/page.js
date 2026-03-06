@@ -1,3 +1,6 @@
+"use client"
+import { usePathname } from "next/navigation"
+
 export default function Home() {
   return (
     <main className="font-sans">
@@ -25,7 +28,10 @@ Kantiqa
 <div className="flex items-center gap-6">
 
 <a className="text-gray-800 hover:text-green-700 font-medium" href="#">Home</a>
-<a className="text-gray-800 hover:text-green-700 font-medium" href="/products">
+<a
+href="/products"
+className="text-gray-800 hover:text-green-700 font-medium"
+>
 Products
 </a>
 <a className="text-gray-800 hover:text-green-700 font-medium" href="#">About</a>

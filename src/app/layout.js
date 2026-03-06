@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-white text-gray-900">
+        <Navbar />
         {children}
         <footer className="bg-green-900 text-white py-12 mt-20">
 
