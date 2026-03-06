@@ -161,6 +161,66 @@ Strengthens and nourishes hair.
 
 </section>
 
+<section className="bg-green-50 py-24 text-center">
+
+<h2 className="text-3xl font-bold text-gray-900 mb-12">
+How To Use Our Products
+</h2>
+
+<div className="flex justify-center gap-12 flex-wrap max-w-5xl mx-auto">
+
+{/* Multani Mitti */}
+
+<div className="w-72">
+
+<h3 className="text-xl font-semibold text-green-700 mb-3">
+Multani Mitti
+</h3>
+
+<p className="text-gray-700">
+Mix 2 spoons of Multani Mitti with rose water,
+apply evenly on the face, leave for 15 minutes,
+then wash with clean water.
+</p>
+
+</div>
+
+{/* Mehendi */}
+
+<div className="w-72">
+
+<h3 className="text-xl font-semibold text-green-700 mb-3">
+Mehendi Powder
+</h3>
+
+<p className="text-gray-700">
+Mix Mehendi powder with water or tea water,
+apply to hair, leave for 1–2 hours,
+then wash thoroughly.
+</p>
+
+</div>
+
+{/* Hair Pack */}
+
+<div className="w-72">
+
+<h3 className="text-xl font-semibold text-green-700 mb-3">
+Herbal Hair Pack
+</h3>
+
+<p className="text-gray-700">
+Mix herbal powder with curd or aloe vera gel,
+apply on scalp and hair,
+leave for 30 minutes and rinse.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
 <section className="bg-green-100 py-20 text-center">
 
 <h2 className="text-3xl font-bold text-gray-900 mb-6">
