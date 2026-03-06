@@ -4,59 +4,109 @@ import { useState } from "react"
 
 export default function Navbar() {
 
-const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
-return (
+  return (
 
-<nav className="bg-white shadow-md px-6 py-4">
+    <nav className="bg-white shadow-md px-6 py-4 sticky top-0 z-50">
 
-<div className="flex justify-between items-center">
+      <div className="flex justify-between items-center">
 
-<h1 className="text-2xl font-bold text-green-700">
-Kantiqa
-</h1>
+        {/* Logo */}
 
-{/* Desktop Menu */}
+        <a href="/" className="flex items-center gap-2">
 
-<div className="hidden md:flex gap-6">
+          <img
+            src="/logo.png"
+            alt="Kantiqa Logo"
+            className="w-14 h-14 object-contain"
+          />
 
-<a href="/" className="text-gray-800 hover:text-green-700">Home</a>
-<a href="/products" className="text-gray-800 hover:text-green-700">Products</a>
-<a href="#" className="text-gray-800 hover:text-green-700">About</a>
-<a href="#" className="text-gray-800 hover:text-green-700">Contact</a>
+          <span className="text-2xl font-bold text-green-700">
+            Kantiqa
+          </span>
 
-</div>
+        </a>
 
-{/* Mobile Button */}
 
-<button
-className="md:hidden text-2xl"
-onClick={() => setMenuOpen(!menuOpen)}
->
+        {/* Desktop Menu */}
 
-☰
+        <div className="hidden md:flex gap-6 items-center">
 
-</button>
+          <a href="/" className="text-gray-800 hover:text-green-700 font-medium">
+            Home
+          </a>
 
-</div>
+          <a href="/products" className="text-gray-800 hover:text-green-700 font-medium">
+            Products
+          </a>
 
-{/* Mobile Menu */}
+          <a href="#" className="text-gray-800 hover:text-green-700 font-medium">
+            About
+          </a>
 
-{menuOpen && (
+          <a href="#" className="text-gray-800 hover:text-green-700 font-medium">
+            Contact
+          </a>
 
-<div className="flex flex-col mt-4 gap-4 md:hidden">
+          <a
+            href="https://www.instagram.com/kantiqa.official"
+            target="_blank"
+            className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800"
+          >
+            Instagram
+          </a>
 
-<a href="/" className="text-gray-800 hover:text-green-700">Home</a>
-<a href="/products" className="text-gray-800 hover:text-green-700">Products</a>
-<a href="#" className="text-gray-800 hover:text-green-700">About</a>
-<a href="#" className="text-gray-800 hover:text-green-700">Contact</a>
+        </div>
 
-</div>
 
-)}
+        {/* Mobile Button */}
 
-</nav>
+        <button
+          className="md:hidden text-3xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
 
-)
+      </div>
 
+
+      {/* Mobile Menu */}
+
+      {menuOpen && (
+
+        <div className="flex flex-col mt-4 gap-4 md:hidden">
+
+          <a href="/" className="text-gray-800 hover:text-green-700">
+            Home
+          </a>
+
+          <a href="/products" className="text-gray-800 hover:text-green-700">
+            Products
+          </a>
+
+          <a href="#" className="text-gray-800 hover:text-green-700">
+            About
+          </a>
+
+          <a href="#" className="text-gray-800 hover:text-green-700">
+            Contact
+          </a>
+
+          <a
+            href="https://www.instagram.com/kantiqa.official"
+            target="_blank"
+            className="bg-green-700 text-white px-4 py-2 rounded-lg w-fit"
+          >
+            Instagram
+          </a>
+
+        </div>
+
+      )}
+
+    </nav>
+
+  )
 }

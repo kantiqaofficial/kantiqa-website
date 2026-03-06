@@ -7,47 +7,7 @@ export default function Home() {
 
       {/* Navbar */}
 
-<nav className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
 
-{/* Logo Section */}
-<div className="flex items-center gap-3">
-
-<img
-src="/logo.png"
-alt="Kantiqa Logo"
-className="w-20 h-20 object-contain"
-/>
-
-<h1 className="text-2xl font-bold text-green-700">
-Kantiqa
-</h1>
-
-</div>
-
-{/* Navigation Links */}
-<div className="flex items-center gap-6">
-
-<a className="text-gray-800 hover:text-green-700 font-medium" href="#">Home</a>
-<a
-href="/products"
-className="text-gray-800 hover:text-green-700 font-medium"
->
-Products
-</a>
-<a className="text-gray-800 hover:text-green-700 font-medium" href="#">About</a>
-<a className="text-gray-800 hover:text-green-700 font-medium" href="#">Contact</a>
-
-<a
-href="https://www.instagram.com/kantiqa.official"
-target="_blank"
-className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800"
->
-Instagram
-</a>
-
-</div>
-
-</nav>
 
 
       {/* Hero Section */}
