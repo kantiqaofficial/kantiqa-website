@@ -75,7 +75,7 @@ Order on WhatsApp
 
 <section className="py-20 text-center">
 
-<h2 className="text-3xl font-bold text-gray-900 mb-12">
+<h2 className="text-3xl font-bold mb-12">
 Our Products
 </h2>
 
@@ -133,24 +133,24 @@ Natural hair colour and nourishment.
 </a>
 
 
-<a href="/products/herbal-hair-pack">
+<a href="/products/shikakai">
 
 <div className="bg-white p-6 rounded-xl shadow-md w-64 
 hover:shadow-xl transform hover:-translate-y-2 
 transition duration-300 cursor-pointer">
 
 <img
-src="/images/hair-pack.jpg"
-alt="Herbal Hair Pack"
+src="/images/shikakai.jpg"
+alt="Shikakai Powder"
 className="rounded-lg mb-4 hover:scale-105 transition duration-300"
 />
 
 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-Herbal Hair Pack
+Shikakai Powder
 </h3>
 
 <p className="text-gray-600">
-Strengthens and nourishes hair.
+Natural herbal cleanser that strengthens hair and promotes healthy growth.
 </p>
 
 </div>
