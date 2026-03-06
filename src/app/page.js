@@ -24,21 +24,10 @@ Kantiqa
 {/* Navigation Links */}
 <div className="flex items-center gap-6">
 
-<a className="hover:text-green-700 font-medium" href="#">
-Home
-</a>
-
-<a className="hover:text-green-700 font-medium" href="#">
-Products
-</a>
-
-<a className="hover:text-green-700 font-medium" href="#">
-About
-</a>
-
-<a className="hover:text-green-700 font-medium" href="#">
-Contact
-</a>
+<a className="text-gray-800 hover:text-green-700 font-medium" href="#">Home</a>
+<a className="text-gray-800 hover:text-green-700 font-medium" href="#">Products</a>
+<a className="text-gray-800 hover:text-green-700 font-medium" href="#">About</a>
+<a className="text-gray-800 hover:text-green-700 font-medium" href="#">Contact</a>
 
 <a
 href="https://www.instagram.com/kantiqa.official"
@@ -55,24 +44,19 @@ Instagram
 
       {/* Hero Section */}
 
-      <section className="text-center py-24 bg-green-100">
+<section className="bg-green-100 py-20 text-center">
 
-        <h1 className="text-5xl font-bold mb-6">
-          Pure Herbal Beauty From Nature 🌿
-        </h1>
+<h2 className="text-3xl font-bold text-gray-900 mb-6">
+About Kantiqa
+</h2>
 
-        <p className="text-lg mb-8">
-          Traditional herbal powders crafted for healthy skin and hair.
-        </p>
+<p className="max-w-2xl mx-auto text-lg text-gray-700">
+Kantiqa brings the purity of traditional herbal ingredients
+for skin and hair care. Our products are 100% natural,
+chemical-free, and crafted with care.
+</p>
 
-        <a
-          href="https://wa.me/919302824042?text=Hello%20I%20want%20to%20order%20Kantiqa%20products"
-          className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
-        >
-          Order on WhatsApp
-        </a>
-
-      </section>
+</section>
 
 
       {/* Products Section */}
@@ -116,19 +100,19 @@ Instagram
 
     </section>
 
-    <section className="bg-green-100 py-20 text-center">
+<section className="bg-green-100 py-20 text-center">
 
-      <h2 className="text-3xl font-bold mb-6">
-      About Kantiqa
-      </h2>
+<h2 className="text-3xl font-bold text-gray-900 mb-6">
+About Kantiqa
+</h2>
 
-      <p className="max-w-2xl mx-auto text-lg">
-      Kantiqa brings the purity of traditional herbal ingredients
-      for skin and hair care. Our products are 100% natural,
-      chemical-free, and crafted with care.
-      </p>
+<p className="max-w-2xl mx-auto text-lg text-gray-700">
+Kantiqa brings the purity of traditional herbal ingredients
+for skin and hair care. Our products are 100% natural,
+chemical-free, and crafted with care.
+</p>
 
-    </section>
+</section>
 
     <section className="py-20 text-center">
 
@@ -160,18 +144,18 @@ Why Choose Kantiqa
 
 <section className="bg-green-50 py-20 text-center">
 
-<h2 className="text-3xl font-bold mb-10">
+<h2 className="text-3xl font-bold text-gray-900 mb-10">
 Customer Reviews
 </h2>
 
 <div className="flex justify-center gap-10 flex-wrap">
 
-<div className="bg-white p-6 rounded-xl shadow w-64">
+<div className="bg-white p-6 rounded-xl shadow w-64 text-gray-800">
 <p>⭐⭐⭐⭐⭐</p>
 <p>My skin feels fresh after using Kantiqa Multani Mitti.</p>
 </div>
 
-<div className="bg-white p-6 rounded-xl shadow w-64">
+<div className="bg-white p-6 rounded-xl shadow w-64 text-gray-800">
 <p>⭐⭐⭐⭐⭐</p>
 <p>The mehendi powder gives amazing natural colour.</p>
 </div>
