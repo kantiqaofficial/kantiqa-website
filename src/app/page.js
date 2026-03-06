@@ -11,7 +11,7 @@ export default function Home() {
 <img
 src="/logo.png"
 alt="Kantiqa Logo"
-className="w-16 h-16 object-contain"
+className="w-20 h-20 object-contain"
 />
 
 <h1 className="text-2xl font-bold text-green-700">
