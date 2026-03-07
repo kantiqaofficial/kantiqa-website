@@ -44,6 +44,10 @@ export const metadata = {
     ],
     type: "website",
   },
+
+  verification: {
+    google: "8-w53tCmauxzzvmhGWOy3boh8GiJQecQsCztTHQrQr0",
+  },
 }
 
 export default function RootLayout({ children }) {
