@@ -41,11 +41,11 @@ export default function Navbar() {
             Products
           </a>
 
-          <a href="#" className="text-gray-800 hover:text-green-700 font-medium">
+          <a href="/about" className="text-gray-800 hover:text-green-700 font-medium">
             About
           </a>
 
-          <a href="#" className="text-gray-800 hover:text-green-700 font-medium">
+          <a href="/contact" className="text-gray-800 hover:text-green-700 font-medium">
             Contact
           </a>
 
@@ -86,11 +86,11 @@ export default function Navbar() {
             Products
           </a>
 
-          <a href="#" className="text-gray-800 hover:text-green-700">
+          <a href="/about" className="text-gray-800 hover:text-green-700">
             About
           </a>
 
-          <a href="#" className="text-gray-800 hover:text-green-700">
+          <a href="/contact" className="text-gray-800 hover:text-green-700">
             Contact
           </a>
 
