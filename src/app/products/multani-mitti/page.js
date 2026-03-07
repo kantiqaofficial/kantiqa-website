@@ -1,6 +1,11 @@
+export const metadata = {
+  title: "Multani Mitti Powder | Kantiqa",
+  description:
+    "Buy natural Multani Mitti powder from Kantiqa. Perfect for deep cleansing, oil control, and glowing skin.",
+}
 export default function MultaniMitti() {
   return (
-    <main className="max-w-5xl mx-auto py-20 px-6">
+    <main className="bg-white min-h-screen max-w-5xl mx-auto py-20 px-6">
 
       <h1 className="text-4xl font-bold text-green-700 mb-6">
         Multani Mitti

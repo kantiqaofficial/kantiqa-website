@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Natural Mehendi Powder | Kantiqa",
+  description:
+    "Kantiqa natural Mehendi powder strengthens hair and provides beautiful natural color.",
+}
 export default function Mehendi() {
   return (
     <main className="bg-white min-h-screen max-w-5xl mx-auto py-20 px-6">

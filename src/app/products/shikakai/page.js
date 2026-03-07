@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Shikakai Powder for Hair | Kantiqa",
+  description:
+    "Kantiqa Shikakai powder is a natural herbal cleanser that strengthens hair and promotes healthy growth.",
+}
 export default function Shikakai() {
   return (
     <main className="bg-white min-h-screen max-w-5xl mx-auto py-20 px-6">
