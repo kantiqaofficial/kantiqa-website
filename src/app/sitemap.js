@@ -1,31 +1,31 @@
 export default function sitemap() {
   return [
     {
-      url: "https://kantiqa.vercel.app",
+      url: "https://kantiqa-website.vercel.app",
       lastModified: new Date(),
     },
     {
-      url: "https://kantiqa.vercel.app/products",
+      url: "https://kantiqa-website.vercel.app/products",
       lastModified: new Date(),
     },
     {
-      url: "https://kantiqa.vercel.app/products/multani-mitti",
+      url: "https://kantiqa-website.vercel.app/products/multani-mitti",
       lastModified: new Date(),
     },
     {
-      url: "https://kantiqa.vercel.app/products/mehendi",
+      url: "https://kantiqa-website.vercel.app/products/mehendi",
       lastModified: new Date(),
     },
     {
-      url: "https://kantiqa.vercel.app/products/shikakai",
+      url: "https://kantiqa-website.vercel.app/products/shikakai",
       lastModified: new Date(),
     },
     {
-      url: "https://kantiqa.vercel.app/about",
+      url: "https://kantiqa-website.vercel.app/about",
       lastModified: new Date(),
     },
     {
-      url: "https://kantiqa.vercel.app/contact",
+      url: "https://kantiqa-website.vercel.app/contact",
       lastModified: new Date(),
     },
   ]
