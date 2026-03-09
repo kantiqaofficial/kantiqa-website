@@ -1,140 +1,94 @@
-"use client"
-import { usePathname } from "next/navigation"
+import { connectDB } from "@/lib/mongodb"
+import Product from "@/models/Product"
 
-export default function Home() {
+export default async function Home() {
+
+  await connectDB()
+
+  const products = await Product.find()
+
   return (
     <main className="font-sans">
 
-      {/* Navbar */}
-
-
-
-
       {/* Hero Section */}
 
-<section
-className="text-center py-32 bg-cover bg-center"
-style={{ backgroundImage: "url('/images/hero.jpg')" }}
->
+      <section
+        className="text-center py-32 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/hero.jpg')" }}
+      >
+        <div className="bg-black/40 py-20">
 
-<div className="bg-black/40 py-20">
+          <h1 className="text-5xl font-bold text-white mb-6">
+            Pure Herbal Beauty From Nature 🌿
+          </h1>
 
-<h1 className="text-5xl font-bold text-white mb-6">
-Pure Herbal Beauty From Nature 🌿
-</h1>
+          <p className="text-lg text-gray-200 mb-8">
+            Traditional herbal powders crafted for healthy skin and hair.
+          </p>
 
-<p className="text-lg text-gray-200 mb-8">
-Traditional herbal powders crafted for healthy skin and hair.
-</p>
+          <div className="flex justify-center gap-4 flex-wrap">
 
-<a
-href="/products"
-className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100"
->
-View Products
-</a>
+            <a
+              href="/products"
+              className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100"
+            >
+              View Products
+            </a>
 
-<a
-href="https://wa.me/919302824042?text=Hello%20I%20want%20to%20order%20Kantiqa%20products"
-className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
->
-Order on WhatsApp
-</a>
+            <a
+              href="https://wa.me/919302824042?text=Hello%20I%20want%20to%20order%20Kantiqa%20products"
+              className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
+            >
+              Order on WhatsApp
+            </a>
 
-</div>
+          </div>
 
-</section>
-
+        </div>
+      </section>
 
       {/* Products Section */}
 
-<section className="py-20 text-center">
+      <section className="py-20 text-center">
 
-<h2 className="text-3xl font-bold mb-12">
-Our Products
-</h2>
+        <h2 className="text-3xl font-bold mb-12">
+          Our Products
+        </h2>
 
-<div className="flex justify-center gap-10 flex-wrap">
+        <div className="flex justify-center gap-10 flex-wrap">
 
-{/* Product Card */}
+          {products.slice(0,3).map((product) => (
 
-<a href="/products/multani-mitti">
+            <div
+              key={product._id}
+              className="bg-white p-6 rounded-xl shadow-md w-64 hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
+            >
 
-<div className="bg-white p-6 rounded-xl shadow-md w-64 
-hover:shadow-xl transform hover:-translate-y-2 
-transition duration-300 cursor-pointer">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="rounded-lg mb-4 hover:scale-105 transition duration-300"
+              />
 
-<img
-src="/images/multani-mitti.jpg"
-alt="Multani Mitti"
-className="rounded-lg mb-4 hover:scale-105 transition duration-300"
-/>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                {product.name}
+              </h3>
 
-<h3 className="text-xl font-semibold text-gray-900 mb-2">
-Multani Mitti
-</h3>
+              <p className="text-gray-600 mb-2">
+                {product.weight}
+              </p>
 
-<p className="text-gray-600">
-Natural face pack for glowing skin.
-</p>
+              <p className="text-green-700 font-bold">
+                ₹{product.price}
+              </p>
 
-</div>
+            </div>
 
-</a>
+          ))}
 
+        </div>
 
-<a href="/products/mehendi">
-
-<div className="bg-white p-6 rounded-xl shadow-md w-64 
-hover:shadow-xl transform hover:-translate-y-2 
-transition duration-300 cursor-pointer">
-
-<img
-src="/images/mehendi.jpg"
-alt="Mehendi"
-className="rounded-lg mb-4 hover:scale-105 transition duration-300"
-/>
-
-<h3 className="text-xl font-semibold text-gray-900 mb-2">
-Mehendi Powder
-</h3>
-
-<p className="text-gray-600">
-Natural hair colour and nourishment.
-</p>
-
-</div>
-
-</a>
-
-
-<a href="/products/shikakai">
-
-<div className="bg-white p-6 rounded-xl shadow-md w-64 
-hover:shadow-xl transform hover:-translate-y-2 
-transition duration-300 cursor-pointer">
-
-<img
-src="/images/shikakai.jpg"
-alt="Shikakai Powder"
-className="rounded-lg mb-4 hover:scale-105 transition duration-300"
-/>
-
-<h3 className="text-xl font-semibold text-gray-900 mb-2">
-Shikakai Powder
-</h3>
-
-<p className="text-gray-600">
-Natural herbal cleanser that strengthens hair and promotes healthy growth.
-</p>
-
-</div>
-
-</a>
-
-</div>
-
-</section>
+      </section>
 
 <section className="bg-green-50 py-24 text-center">
 

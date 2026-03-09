@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
+import { CartProvider } from "@/context/CartContext"
+import Providers from "@/components/Providers"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +57,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-white text-gray-900">
+        
           {/* Google Analytics */}
           <Script
 src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`}
@@ -70,7 +73,8 @@ gtag('js', new Date());
 gtag('config', 'G-ZG9N5HY2GH');
 `}
 </Script>
-
+      <CartProvider>
+      <Providers>
         <Navbar />
 
         {children}
@@ -129,7 +133,8 @@ gtag('config', 'G-ZG9N5HY2GH');
         >
           WhatsApp
         </a>
-
+      </Providers>
+      </CartProvider>
       </body>
     </html>
   )

@@ -1,77 +1,64 @@
-export default function Products() {
-  return (
-    <main className="bg-white min-h-screen py-20 px-6">
+import Link from "next/link"
+import { connectDB } from "@/lib/mongodb"
+import Product from "@/models/Product"
 
-      <h1 className="text-4xl font-bold text-center text-green-700 mb-12">
+export default async function ProductsPage(){
+
+  await connectDB()
+
+  const products = await Product.find()
+
+  return(
+
+    <main className="max-w-7xl mx-auto py-20 px-6">
+
+      <h1 className="text-4xl font-bold text-center mb-16">
         Our Products
       </h1>
 
-      <div className="flex justify-center gap-10 flex-wrap">
+      <div className="grid md:grid-cols-3 gap-10">
 
-        {/* Multani Mitti */}
-        <a href="/products/multani-mitti">
-          <div className="bg-white p-6 rounded-xl shadow-md w-64 hover:shadow-xl transition">
+        {products.map((product)=>(
 
-            <img
-              src="/images/multani-mitti.jpg"
-              className="rounded mb-4"
-            />
+          <Link key={product._id} href={`/products/${product._id}`}>
 
-            <h3 className="text-xl font-semibold text-gray-900">
-              Multani Mitti
-            </h3>
+            <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 cursor-pointer">
 
-            <p className="text-gray-600">
-              Natural face pack for glowing skin.
-            </p>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="h-64 w-full object-cover"
+              />
 
-          </div>
-        </a>
+              <div className="p-6">
 
+                <h2 className="text-xl font-semibold mb-2">
+                  {product.name}
+                </h2>
 
-        {/* Mehendi */}
-        <a href="/products/mehendi">
-          <div className="bg-white p-6 rounded-xl shadow-md w-64 hover:shadow-xl transition">
+                <p className="text-gray-500 mb-2">
+                  {product.weight}
+                </p>
 
-            <img
-              src="/images/mehendi.jpg"
-              className="rounded mb-4"
-            />
+                <p className="text-green-700 font-bold text-lg mb-4">
+                  ₹{product.price}
+                </p>
 
-            <h3 className="text-xl font-semibold text-gray-900">
-              Mehendi Powder
-            </h3>
+                <button className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800">
+                  View Product
+                </button>
 
-            <p className="text-gray-600">
-              Natural hair colour and nourishment.
-            </p>
+              </div>
 
-          </div>
-        </a>
+            </div>
 
+          </Link>
 
-        {/* Shikakai */}
-        <a href="/products/shikakai">
-          <div className="bg-white p-6 rounded-xl shadow-md w-64 hover:shadow-xl transition">
-
-            <img
-              src="/images/shikakai.jpg"
-              className="rounded mb-4"
-            />
-
-            <h3 className="text-xl font-semibold text-gray-900">
-              Shikakai Powder
-            </h3>
-
-            <p className="text-gray-600">
-              Natural herbal hair cleanser.
-            </p>
-
-          </div>
-        </a>
+        ))}
 
       </div>
 
     </main>
+
   )
 }

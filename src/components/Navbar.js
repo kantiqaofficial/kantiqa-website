@@ -1,10 +1,18 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import { useContext } from "react"
+import { CartContext } from "@/context/CartContext"
+import { signOut, useSession } from "next-auth/react"
 
 export default function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false)
+  const { cart } = useContext(CartContext)
+  const { data: session } = useSession()
+
+const cartCount = cart.reduce((sum,item)=> sum + item.quantity,0)
 
   return (
 
@@ -14,7 +22,7 @@ export default function Navbar() {
 
         {/* Logo */}
 
-        <a href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
 
           <img
             src="/logo.png"
@@ -26,28 +34,28 @@ export default function Navbar() {
             Kantiqa
           </span>
 
-        </a>
+        </Link>
 
 
         {/* Desktop Menu */}
 
         <div className="hidden md:flex gap-6 items-center">
 
-          <a href="/" className="text-gray-800 hover:text-green-700 font-medium">
+          <Link href="/" className="text-gray-800 hover:text-green-700 font-medium">
             Home
-          </a>
+          </Link>
 
-          <a href="/products" className="text-gray-800 hover:text-green-700 font-medium">
+          <Link href="/products" className="text-gray-800 hover:text-green-700 font-medium">
             Products
-          </a>
+          </Link>
 
-          <a href="/about" className="text-gray-800 hover:text-green-700 font-medium">
+          <Link href="/about" className="text-gray-800 hover:text-green-700 font-medium">
             About
-          </a>
+          </Link>
 
-          <a href="/contact" className="text-gray-800 hover:text-green-700 font-medium">
+          <Link href="/contact" className="text-gray-800 hover:text-green-700 font-medium">
             Contact
-          </a>
+          </Link>
 
           <a
             href="https://www.instagram.com/kantiqa.official"
@@ -56,6 +64,39 @@ export default function Navbar() {
           >
             Instagram
           </a>
+
+          <Link href="/cart" className="text-gray-800 hover:text-green-700">
+Cart ({cartCount})
+</Link>
+
+{session ? (
+
+<>
+<Link href="/my-orders" className="text-gray-800 hover:text-green-700">
+My Orders
+</Link>
+
+<button
+onClick={() => signOut()}
+className="text-gray-800 hover:text-green-700"
+>
+Logout
+</button>
+</>
+
+) : (
+
+<>
+<Link href="/login" className="text-gray-800 hover:text-green-700">
+Login
+</Link>
+
+<Link href="/signup" className="text-gray-800 hover:text-green-700">
+Signup
+</Link>
+</>
+
+)}
 
         </div>
 
@@ -78,21 +119,10 @@ export default function Navbar() {
 
         <div className="flex flex-col mt-4 gap-4 md:hidden">
 
-          <a href="/" className="text-gray-800 hover:text-green-700">
-            Home
-          </a>
-
-          <a href="/products" className="text-gray-800 hover:text-green-700">
-            Products
-          </a>
-
-          <a href="/about" className="text-gray-800 hover:text-green-700">
-            About
-          </a>
-
-          <a href="/contact" className="text-gray-800 hover:text-green-700">
-            Contact
-          </a>
+          <Link href="/">Home</Link>
+          <Link href="/products">Products</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
 
           <a
             href="https://www.instagram.com/kantiqa.official"
@@ -101,6 +131,26 @@ export default function Navbar() {
           >
             Instagram
           </a>
+
+          <Link href="/cart" > Cart ({cartCount})</Link>
+          {session ? (
+
+<>
+<Link href="/my-orders">My Orders</Link>
+
+<button onClick={() => signOut()}>
+Logout
+</button>
+</>
+
+) : (
+
+<>
+<Link href="/login">Login</Link>
+<Link href="/signup">Signup</Link>
+</>
+
+)}
 
         </div>
 
