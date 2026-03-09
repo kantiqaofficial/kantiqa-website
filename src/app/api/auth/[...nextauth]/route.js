@@ -4,7 +4,7 @@ import { connectDB } from "@/lib/mongodb"
 import User from "@/models/User"
 import bcrypt from "bcryptjs"
 
-const handler = NextAuth({
+export const authOptions = {
 
 providers:[
 
@@ -53,34 +53,10 @@ role:user.role
 
 session:{
 strategy:"jwt"
-},
-
-pages:{
-signIn:"/login"
-},
-
-callbacks:{
-
-async jwt({token,user}){
-
-if(user){
-token.role = user.role
-}
-
-return token
-
-},
-
-async session({session,token}){
-
-session.user.role = token.role
-
-return session
-
 }
 
 }
 
-})
+const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
