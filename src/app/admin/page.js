@@ -29,16 +29,16 @@ Admin Dashboard
 </h1>
 
 <div className="grid md:grid-cols-4 gap-6">
-<a href="/admin/products">
-Manage Products
-</a>
+
 <div className="bg-white p-6 rounded-lg shadow">
 <h2 className="text-lg text-gray-500">Orders</h2>
 <p className="text-3xl font-bold">
 {totalOrders}
 </p>
 </div>
-
+<a href="/admin/products">
+Manage Products
+</a>
 <div className="bg-white p-6 rounded-lg shadow">
 <h2 className="text-lg text-gray-500">Revenue</h2>
 <p className="text-3xl font-bold text-green-700">
