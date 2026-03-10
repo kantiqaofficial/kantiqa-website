@@ -1,12 +1,17 @@
 import Link from "next/link"
 import { connectDB } from "@/lib/mongodb"
 import Product from "@/models/Product"
+import { useState } from "react"
 
 export default async function ProductsPage(){
 
   await connectDB()
 
   const products = await Product.find()
+  const [search,setSearch] = useState("")
+  const filteredProducts = products.filter((product)=>
+product.name.toLowerCase().includes(search.toLowerCase())
+)
 
   return(
 
@@ -15,10 +20,18 @@ export default async function ProductsPage(){
       <h1 className="text-4xl font-bold text-center mb-16">
         Our Products
       </h1>
+      
+      <input
+type="text"
+placeholder="Search products..."
+value={search}
+onChange={(e)=>setSearch(e.target.value)}
+className="border p-3 rounded w-full mb-10"
+/>
 
       <div className="grid md:grid-cols-3 gap-10">
 
-        {products.map((product)=>(
+        {filteredProducts.map((product)=>(
 
           <Link key={product._id} href={`/products/${product._id}`}>
 
