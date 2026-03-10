@@ -39,7 +39,7 @@ throw new Error("Invalid password")
 }
 
 return {
-id:user._id,
+id:user._id.toString(),
 name:user.name,
 email:user.email,
 role:user.role
@@ -53,6 +53,30 @@ role:user.role
 
 session:{
 strategy:"jwt"
+},
+
+callbacks:{
+
+async jwt({token,user}){
+
+if(user){
+token.role = user.role
+}
+
+return token
+
+},
+
+async session({session,token}){
+
+if(session.user){
+session.user.role = token.role
+}
+
+return session
+
+}
+
 }
 
 }
