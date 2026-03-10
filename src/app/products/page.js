@@ -1,27 +1,33 @@
-import Link from "next/link"
-import { connectDB } from "@/lib/mongodb"
-import Product from "@/models/Product"
-import { useState } from "react"
+"use client"
 
-export default async function ProductsPage(){
+import { useEffect, useState } from "react"
 
-  await connectDB()
+export default function ProductsPage(){
 
-  const products = await Product.find()
-  const [search,setSearch] = useState("")
-  const filteredProducts = products.filter((product)=>
+const [products,setProducts] = useState([])
+const [search,setSearch] = useState("")
+
+useEffect(()=>{
+
+fetch("/api/products")
+.then(res=>res.json())
+.then(data=>setProducts(data))
+
+},[])
+
+const filteredProducts = products.filter((product)=>
 product.name.toLowerCase().includes(search.toLowerCase())
 )
 
-  return(
+return(
 
-    <main className="max-w-7xl mx-auto py-20 px-6">
+<main className="max-w-6xl mx-auto py-20 px-6">
 
-      <h1 className="text-4xl font-bold text-center mb-16">
-        Our Products
-      </h1>
-      
-      <input
+<h1 className="text-4xl font-bold mb-10">
+Our Products
+</h1>
+
+<input
 type="text"
 placeholder="Search products..."
 value={search}
@@ -29,49 +35,40 @@ onChange={(e)=>setSearch(e.target.value)}
 className="border p-3 rounded w-full mb-10"
 />
 
-      <div className="grid md:grid-cols-3 gap-10">
+<div className="grid grid-cols-3 gap-6">
 
-        {filteredProducts.map((product)=>(
+{filteredProducts.map((product)=>(
 
-          <Link key={product._id} href={`/products/${product._id}`}>
+<div
+key={product._id}
+className="border p-6 rounded-lg shadow"
+>
 
-            <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 cursor-pointer">
+<img
+src={product.image}
+className="mb-4"
+/>
 
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-64 w-full object-cover"
-              />
+<h2 className="text-xl font-semibold">
+{product.name}
+</h2>
 
-              <div className="p-6">
+<p className="text-gray-600">
+{product.weight}
+</p>
 
-                <h2 className="text-xl font-semibold mb-2">
-                  {product.name}
-                </h2>
+<p className="text-green-700 font-bold">
+₹{product.price}
+</p>
 
-                <p className="text-gray-500 mb-2">
-                  {product.weight}
-                </p>
+</div>
 
-                <p className="text-green-700 font-bold text-lg mb-4">
-                  ₹{product.price}
-                </p>
+))}
 
-                <button className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800">
-                  View Product
-                </button>
+</div>
 
-              </div>
+</main>
 
-            </div>
+)
 
-          </Link>
-
-        ))}
-
-      </div>
-
-    </main>
-
-  )
 }

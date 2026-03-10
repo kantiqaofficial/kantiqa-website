@@ -1,29 +1,16 @@
 import { connectDB } from "@/lib/mongodb"
 import Product from "@/models/Product"
-import { connectDB } from "@/lib/mongodb"
-import Product from "@/models/Product"
-
-export async function POST(req){
-
-await connectDB()
-
-const body = await req.json()
-
-const product = await Product.create(body)
-
-return Response.json(product)
-
-}
-export async function GET() {
+export async function GET(){
 
   await connectDB()
 
-  const products = await Product.find()
+  const products = await Product.find().sort({createdAt:-1})
 
   return Response.json(products)
+
 }
 
-export async function POST(req) {
+export async function POST(req){
 
   await connectDB()
 
@@ -32,6 +19,7 @@ export async function POST(req) {
   const product = await Product.create(body)
 
   return Response.json(product)
+
 }
 
 export async function DELETE(req) {
