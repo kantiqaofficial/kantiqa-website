@@ -22,7 +22,7 @@ const totalRevenue = orders.reduce(
 
 return(
 
-<main>
+<main className="max-w-6xl mx-auto py-20 px-6">
 
 <h1 className="text-4xl font-bold mb-10">
 Admin Dashboard
@@ -30,21 +30,25 @@ Admin Dashboard
 
 <div className="grid md:grid-cols-4 gap-6">
 
+{/* Orders */}
+
 <div className="bg-white p-6 rounded-lg shadow">
 <h2 className="text-lg text-gray-500">Orders</h2>
 <p className="text-3xl font-bold">
 {totalOrders}
 </p>
 </div>
-<a href="/admin/products">
-Manage Products
-</a>
+
+{/* Revenue */}
+
 <div className="bg-white p-6 rounded-lg shadow">
 <h2 className="text-lg text-gray-500">Revenue</h2>
 <p className="text-3xl font-bold text-green-700">
 ₹{totalRevenue}
 </p>
 </div>
+
+{/* Products */}
 
 <div className="bg-white p-6 rounded-lg shadow">
 <h2 className="text-lg text-gray-500">Products</h2>
@@ -53,12 +57,34 @@ Manage Products
 </p>
 </div>
 
+{/* Reviews */}
+
 <div className="bg-white p-6 rounded-lg shadow">
 <h2 className="text-lg text-gray-500">Reviews</h2>
 <p className="text-3xl font-bold">
 {totalReviews}
 </p>
 </div>
+
+</div>
+
+{/* Admin Tools */}
+
+<div className="mt-12 flex gap-6">
+
+<a
+href="/admin/products"
+className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
+>
+Manage Products
+</a>
+
+<a
+href="/admin/orders"
+className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900"
+>
+Manage Orders
+</a>
 
 </div>
 
