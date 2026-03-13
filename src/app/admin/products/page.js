@@ -44,6 +44,13 @@ return(
 Admin Product Manager
 </h1>
 
+<Link
+href="/admin/products/add"
+className="bg-green-700 text-white px-6 py-3 rounded-lg mb-8 inline-block"
+>
+Add Product
+</Link>
+
 <div className="space-y-6">
 
 {products.map((product)=>(
