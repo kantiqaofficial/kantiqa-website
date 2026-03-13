@@ -1,187 +1,181 @@
 import { connectDB } from "@/lib/mongodb"
 import Product from "@/models/Product"
+import Link from "next/link"
 
 export default async function Home() {
 
-  await connectDB()
+await connectDB()
 
-  const products = await Product.find()
+const products = await Product.find()
 
-  return (
-    <main className="font-sans">
+return (
 
-      {/* Hero Section */}
+<main className="bg-white text-gray-900">
 
-      <section
-        className="text-center py-32 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero.jpg')" }}
-      >
-        <div className="bg-black/40 py-20">
+{/* HERO SECTION */}
 
-          <h1 className="text-5xl font-bold text-white mb-6">
-            Pure Herbal Beauty From Nature 🌿
-          </h1>
+<section
+className="relative bg-cover bg-center py-40 text-center"
+style={{ backgroundImage: "url('/images/hero.jpg')" }}
+>
 
-          <p className="text-lg text-gray-200 mb-8">
-            Traditional herbal powders crafted for healthy skin and hair.
-          </p>
+<div className="absolute inset-0 bg-black/40"></div>
 
-          <div className="flex justify-center gap-4 flex-wrap">
+<div className="relative z-10 max-w-4xl mx-auto px-6">
 
-            <a
-              href="/products"
-              className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100"
-            >
-              View Products
-            </a>
+<h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+Pure Herbal Beauty <br/> From Nature 🌿
+</h1>
 
-            <a
-              href="https://wa.me/919302824042?text=Hello%20I%20want%20to%20order%20Kantiqa%20products"
-              className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
-            >
-              Order on WhatsApp
-            </a>
+<p className="text-lg md:text-xl text-gray-200 mb-10">
+Traditional herbal powders crafted for glowing skin and healthy hair.
+</p>
 
-          </div>
+<div className="flex justify-center gap-4 flex-wrap">
 
-        </div>
-      </section>
+<Link
+href="/products"
+className="bg-white text-green-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-200"
+>
+Shop Products
+</Link>
 
-      {/* Products Section */}
+<a
+href="https://wa.me/919302824042"
+className="bg-green-700 text-white px-8 py-3 rounded-full hover:bg-green-800"
+>
+Order on WhatsApp
+</a>
 
-      <section className="py-20 text-center">
+</div>
 
-        <h2 className="text-3xl font-bold mb-12">
-          Our Products
-        </h2>
+</div>
 
-        <div className="flex justify-center gap-10 flex-wrap">
+</section>
 
-          {products.slice(0,3).map((product) => (
+{/* TRUST BADGES */}
 
-            <div
-              key={product._id}
-              className="bg-white p-6 rounded-xl shadow-md w-64 hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
-            >
+<section className="py-12 bg-green-50">
 
-              <img
-                src={product.image}
-                alt={product.name}
-                className="rounded-lg mb-4 hover:scale-105 transition duration-300"
-              />
+<div className="max-w-6xl mx-auto flex justify-around flex-wrap text-center gap-6">
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {product.name}
-              </h3>
+<div>
+<h3 className="font-bold text-green-700">🌿 100% Natural</h3>
+<p className="text-gray-600 text-sm">Pure herbal ingredients</p>
+</div>
 
-              <p className="text-gray-600 mb-2">
-                {product.weight}
-              </p>
+<div>
+<h3 className="font-bold text-green-700">🚫 Chemical Free</h3>
+<p className="text-gray-600 text-sm">Safe for skin & hair</p>
+</div>
 
-              <p className="text-green-700 font-bold">
-                ₹{product.price}
-              </p>
+<div>
+<h3 className="font-bold text-green-700">🇮🇳 Made in India</h3>
+<p className="text-gray-600 text-sm">Traditional herbal care</p>
+</div>
 
-            </div>
+<div>
+<h3 className="font-bold text-green-700">⭐ Trusted Quality</h3>
+<p className="text-gray-600 text-sm">Loved by customers</p>
+</div>
 
-          ))}
+</div>
 
-        </div>
+</section>
 
-      </section>
+{/* PRODUCTS */}
+
+<section className="py-24">
+
+<div className="max-w-7xl mx-auto px-6 text-center">
+
+<h2 className="text-4xl font-bold mb-14">
+Our Best Sellers
+</h2>
+
+<div className="grid md:grid-cols-3 gap-10">
+
+{products.slice(0,3).map((product)=>(
+
+<Link key={product._id} href={`/products/${product._id}`}>
+
+<div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6">
+
+<img
+src={product.image}
+alt={product.name}
+className="rounded-xl mb-5 w-full h-56 object-cover"
+/>
+
+<h3 className="text-xl font-semibold mb-2">
+{product.name}
+</h3>
+
+<p className="text-gray-500 text-sm mb-2">
+{product.weight}
+</p>
+
+<p className="text-green-700 font-bold text-lg">
+₹{product.price}
+</p>
+
+</div>
+
+</Link>
+
+))}
+
+</div>
+
+<div className="mt-12">
+
+<Link
+href="/products"
+className="bg-green-700 text-white px-8 py-3 rounded-full hover:bg-green-800"
+>
+View All Products
+</Link>
+
+</div>
+
+</div>
+
+</section>
+
+{/* HOW TO USE */}
 
 <section className="bg-green-50 py-24 text-center">
 
-<h2 className="text-3xl font-bold text-gray-900 mb-12">
+<h2 className="text-4xl font-bold mb-12">
 How To Use Our Products
 </h2>
 
-<div className="flex justify-center gap-12 flex-wrap max-w-5xl mx-auto">
+<div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
 
-{/* Multani Mitti */}
-
-<div className="w-72">
-
-<h3 className="text-xl font-semibold text-green-700 mb-3">
+<div className="bg-white p-6 rounded-xl shadow">
+<h3 className="text-xl font-semibold mb-3 text-green-700">
 Multani Mitti
 </h3>
-
-<p className="text-gray-700">
-Mix 2 spoons of Multani Mitti with rose water,
-apply evenly on the face, leave for 15 minutes,
-then wash with clean water.
+<p>
+Mix with rose water, apply on face, leave for 15 minutes, wash.
 </p>
-
 </div>
 
-{/* Mehendi */}
-
-<div className="w-72">
-
-<h3 className="text-xl font-semibold text-green-700 mb-3">
+<div className="bg-white p-6 rounded-xl shadow">
+<h3 className="text-xl font-semibold mb-3 text-green-700">
 Mehendi Powder
 </h3>
-
-<p className="text-gray-700">
-Mix Mehendi powder with water or tea water,
-apply to hair, leave for 1–2 hours,
-then wash thoroughly.
-</p>
-
-</div>
-
-{/* Hair Pack */}
-
-<div className="w-72">
-
-<h3 className="text-xl font-semibold text-green-700 mb-3">
-Herbal Hair Pack
-</h3>
-
-<p className="text-gray-700">
-Mix herbal powder with curd or aloe vera gel,
-apply on scalp and hair,
-leave for 30 minutes and rinse.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section className="bg-white py-24 text-center">
-
-<h2 className="text-3xl font-bold text-gray-900 mb-12">
-Natural Herbal Ingredients
-</h2>
-
-<div className="flex justify-center gap-10 flex-wrap max-w-5xl mx-auto">
-
-<div className="bg-green-50 p-6 rounded-xl w-60 shadow">
-<h3 className="text-xl font-semibold text-green-700 mb-2">
-Multani Mitti
-</h3>
-<p className="text-gray-700">
-Deep cleanses skin and removes excess oil.
+<p>
+Mix with tea water, apply to hair for 1-2 hours, rinse well.
 </p>
 </div>
 
-<div className="bg-green-50 p-6 rounded-xl w-60 shadow">
-<h3 className="text-xl font-semibold text-green-700 mb-2">
-Henna (Mehendi)
-</h3>
-<p className="text-gray-700">
-Strengthens hair and provides natural color.
-</p>
-</div>
-
-<div className="bg-green-50 p-6 rounded-xl w-60 shadow">
-<h3 className="text-xl font-semibold text-green-700 mb-2">
+<div className="bg-white p-6 rounded-xl shadow">
+<h3 className="text-xl font-semibold mb-3 text-green-700">
 Shikakai
 </h3>
-<p className="text-gray-700">
-Natural herbal cleanser that promotes healthy hair growth.
+<p>
+Mix with water, apply to scalp for natural cleansing.
 </p>
 </div>
 
@@ -189,63 +183,43 @@ Natural herbal cleanser that promotes healthy hair growth.
 
 </section>
 
-<section className="bg-green-100 py-20 text-center">
+{/* BRAND STORY */}
 
-<h2 className="text-3xl font-bold text-gray-900 mb-6">
+<section className="py-24 text-center">
+
+<div className="max-w-3xl mx-auto px-6">
+
+<h2 className="text-4xl font-bold mb-6">
 About Kantiqa
 </h2>
 
-<p className="max-w-2xl mx-auto text-lg text-gray-700">
+<p className="text-lg text-gray-600 leading-relaxed">
 Kantiqa brings the purity of traditional herbal ingredients
-for skin and hair care. Our products are 100% natural,
-chemical-free, and crafted with care.
+for skin and hair care. Our mission is to provide natural,
+chemical-free beauty solutions inspired by ancient remedies.
 </p>
 
-</section>
-
-    <section className="py-20 text-center">
-
-<h2 className="text-3xl font-bold mb-12">
-Why Choose Kantiqa
-</h2>
-
-<div className="flex justify-center gap-10 flex-wrap">
-
-<div className="w-60">
-<h3 className="text-xl font-semibold text-green-700">100% Natural</h3>
-<p>No chemicals, only herbal ingredients.</p>
-</div>
-
-<div className="w-60">
-<h3 className="text-xl font-semibold text-green-700">Traditional Care</h3>
-<p>Inspired by ancient herbal beauty rituals.</p>
-</div>
-
-<div className="w-60">
-<h3 className="text-xl font-semibold text-green-700">Safe for Skin & Hair</h3>
-<p>Gentle and effective natural care.</p>
-</div>
-
 </div>
 
 </section>
 
+{/* REVIEWS */}
 
-<section className="bg-green-50 py-20 text-center">
+<section className="bg-green-50 py-24 text-center">
 
-<h2 className="text-3xl font-bold text-gray-900 mb-10">
+<h2 className="text-4xl font-bold mb-12">
 Customer Reviews
 </h2>
 
-<div className="flex justify-center gap-10 flex-wrap">
+<div className="flex justify-center gap-8 flex-wrap">
 
-<div className="bg-white p-6 rounded-xl shadow w-64 text-gray-800">
-<p>⭐⭐⭐⭐⭐</p>
+<div className="bg-white p-6 rounded-xl shadow w-72">
+<p className="text-yellow-500 text-lg mb-2">★★★★★</p>
 <p>My skin feels fresh after using Kantiqa Multani Mitti.</p>
 </div>
 
-<div className="bg-white p-6 rounded-xl shadow w-64 text-gray-800">
-<p>⭐⭐⭐⭐⭐</p>
+<div className="bg-white p-6 rounded-xl shadow w-72">
+<p className="text-yellow-500 text-lg mb-2">★★★★★</p>
 <p>The mehendi powder gives amazing natural colour.</p>
 </div>
 
@@ -253,34 +227,39 @@ Customer Reviews
 
 </section>
 
+{/* INSTAGRAM */}
+
 <section className="py-20 text-center">
 
 <h2 className="text-3xl font-bold mb-6">
 Follow Us on Instagram
 </h2>
 
-<p className="mb-6">
-See product updates and herbal beauty tips.
-See real product updates and customer results.
+<p className="text-gray-600 mb-6">
+Real product updates and herbal beauty tips.
 </p>
 
 <a
 href="https://www.instagram.com/kantiqa.official"
 target="_blank"
-className="bg-green-700 text-white px-6 py-3 rounded-lg"
+className="bg-green-700 text-white px-6 py-3 rounded-full"
 >
 @kantiqa.official
 </a>
 
 </section>
 
-    <a
-     href="https://wa.me/919302824042"
-     className="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg"
-    >
-      WhatsApp
-    </a>
+{/* WHATSAPP BUTTON */}
 
-    </main>
-  )
+<a
+href="https://wa.me/919302824042"
+className="fixed bottom-6 right-6 bg-green-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-green-700"
+>
+WhatsApp
+</a>
+
+</main>
+
+)
+
 }

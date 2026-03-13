@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 
 export default function ProductsPage(){
 
@@ -39,10 +40,9 @@ className="border p-3 rounded w-full mb-10"
 
 {filteredProducts.map((product)=>(
 
-<div
-key={product._id}
-className="border p-6 rounded-lg shadow"
->
+<Link key={product._id} href={`/products/${product._id}`}>
+
+<div className="border p-6 rounded-lg shadow hover:shadow-lg cursor-pointer">
 
 <img
 src={product.image}
@@ -62,6 +62,8 @@ className="mb-4"
 </p>
 
 </div>
+
+</Link>
 
 ))}
 
