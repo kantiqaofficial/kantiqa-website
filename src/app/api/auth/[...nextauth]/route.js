@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { connectDB } from "@/lib/mongodb"
 import User from "@/models/User"
 import bcrypt from "bcryptjs"
+import GoogleProvider from "next-auth/providers/google"
 
 export const authOptions = {
 
@@ -47,6 +48,11 @@ role:user.role
 
 }
 
+}),
+
+GoogleProvider({
+  clientId: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET
 })
 
 ],
@@ -56,6 +62,27 @@ strategy:"jwt"
 },
 
 callbacks:{
+
+async signIn({ user }) {
+
+await connectDB()
+
+const existingUser = await User.findOne({
+email: user.email
+})
+
+if(!existingUser){
+
+await User.create({
+name: user.name,
+email: user.email,
+role: "user"
+})
+
+}
+
+return true
+},
 
 async jwt({token,user}){
 

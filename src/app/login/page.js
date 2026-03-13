@@ -3,6 +3,8 @@
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 import Link from "next/link"
+import { signIn } from "next-auth/react"
+
 
 export default function LoginPage(){
 
@@ -60,6 +62,13 @@ Don't have an account?
 Create one
 </Link>
 </p>
+
+<button
+onClick={() => signIn("google")}
+className="bg-red-500 text-white px-6 py-3 rounded"
+>
+Sign in with Google
+</button>
 
 </div>
 
