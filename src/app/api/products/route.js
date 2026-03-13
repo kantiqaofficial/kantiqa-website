@@ -32,3 +32,40 @@ export async function DELETE(req) {
 
   return Response.json({message:"Product deleted"})
 }
+
+import { connectDB } from "@/lib/mongodb"
+import Product from "@/models/Product"
+
+export async function GET(){
+  await connectDB()
+  const products = await Product.find().sort({createdAt:-1})
+  return Response.json(products)
+}
+
+export async function POST(req){
+  await connectDB()
+  const body = await req.json()
+  const product = await Product.create(body)
+  return Response.json(product)
+}
+
+export async function PUT(req){
+  await connectDB()
+
+  const { id, name, price, image, description, weight } = await req.json()
+
+  const product = await Product.findByIdAndUpdate(
+    id,
+    { name, price, image, description, weight },
+    { new: true }
+  )
+
+  return Response.json(product)
+}
+
+export async function DELETE(req){
+  await connectDB()
+  const { id } = await req.json()
+  await Product.findByIdAndDelete(id)
+  return Response.json({ message: "Product deleted" })
+}

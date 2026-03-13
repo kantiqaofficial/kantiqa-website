@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 
 export default function AdminProducts(){
 
@@ -37,7 +38,7 @@ loadProducts()
 
 return(
 
-<main className="max-w-6xl mx-auto py-20">
+<main className="max-w-6xl mx-auto py-20 px-6">
 
 <h1 className="text-4xl font-bold mb-10">
 Admin Product Manager
@@ -49,7 +50,7 @@ Admin Product Manager
 
 <div
 key={product._id}
-className="flex items-center justify-between border p-6 rounded-lg"
+className="flex items-center justify-between border p-6 rounded-lg shadow"
 >
 
 <div>
@@ -64,12 +65,23 @@ className="flex items-center justify-between border p-6 rounded-lg"
 
 </div>
 
+<div className="flex gap-3">
+
+<Link
+href={`/admin/products/edit/${product._id}`}
+className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+>
+Edit
+</Link>
+
 <button
 onClick={()=>deleteProduct(product._id)}
-className="bg-red-600 text-white px-4 py-2 rounded"
+className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
 >
 Delete
 </button>
+
+</div>
 
 </div>
 
