@@ -6,25 +6,39 @@ export default function AddProduct(){
 
 const [name,setName] = useState("")
 const [price,setPrice] = useState("")
-const [image,setImage] = useState("")
 const [description,setDescription] = useState("")
+const [weight,setWeight] = useState("")
+const [image,setImage] = useState(null)
 
-const addProduct = async () => {
+const addProduct = async ()=>{
 
-await fetch("/api/products",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-name,
-price,
-image,
-description
-})
-})
+  const formData = new FormData()
+  formData.append("file",image)
 
-alert("Product added")
+  const upload = await fetch("/api/upload",{
+    method:"POST",
+    body:formData
+  })
+
+  const uploadData = await upload.json()
+
+  const imageUrl = uploadData.url
+
+  await fetch("/api/products",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+      name,
+      price,
+      description,
+      weight,
+      image:imageUrl
+    })
+  })
+
+  alert("Product added")
 
 }
 
@@ -49,15 +63,21 @@ onChange={(e)=>setPrice(e.target.value)}
 />
 
 <input
-placeholder="Image URL"
+placeholder="Weight"
 className="border p-3 w-full mb-4"
-onChange={(e)=>setImage(e.target.value)}
+onChange={(e)=>setWeight(e.target.value)}
 />
 
 <textarea
 placeholder="Description"
 className="border p-3 w-full mb-4"
 onChange={(e)=>setDescription(e.target.value)}
+/>
+
+<input
+type="file"
+className="mb-6"
+onChange={(e)=>setImage(e.target.files[0])}
 />
 
 <button
